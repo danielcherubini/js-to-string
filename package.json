@@ -1,5 +1,5 @@
 {
-  "name": "stringit",
+  "name": "string-it",
   "version": "0.0.1",
   "description": "Turns anything to string",
   "main": "lib/index.js",
