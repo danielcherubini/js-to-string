@@ -19,7 +19,6 @@ function foo(value) {
 }
 
 test("Function", t => {
-
     const result = stringit(foo);
     const expected = `function foo(value) {
     let thing = true;
@@ -49,14 +48,14 @@ test("String", t => {
 
 test("Object", t => {
 
-    const foo = {
+    const objectt = {
         aBoolean: true,
         aNumber: 12,
         aFunction: bar,
         aString: "foobar",
         aArray: [1, 2, 3, 4, 5],
     };
-    const result = stringit(foo);
+    const result = stringit(objectt);
     const expected = `{aBoolean: true,aNumber: 12,aFunction: function bar(value) {
     let thing = true;
     let array = [1, 2, 3, 4, 5];

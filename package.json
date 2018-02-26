@@ -18,7 +18,8 @@
     "typescript": "^2.7.2"
   },
   "scripts": {
-    "test": "nyc ava"
+    "test": "nyc report --reporter=lcov ava",
+    "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
