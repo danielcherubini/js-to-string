@@ -1,6 +1,6 @@
 # js-to-string
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][cov-image]][cov-url] [![Greenkeeper badge](https://badges.greenkeeper.io/danmademe/js-to-string.svg)](https://greenkeeper.io/) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/51e27f21101e492fabf93dc6d81b8f28)](https://www.codacy.com/app/intothemild/js-to-string?utm_source=github.com&utm_medium=referral&utm_content=danmademe/js-to-string&utm_campaign=badger)
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][cov-image]][cov-url] [![Greenkeeper badge](https://badges.greenkeeper.io/danmademe/js-to-string.svg)](https://greenkeeper.io/)
 
 
 ```js
