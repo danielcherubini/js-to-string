@@ -18,18 +18,6 @@ function foo(value) {
     return thing;
 }
 
-test("Function", t => {
-    const result = stringit(foo);
-    const expected = `function foo(value) {
-    let thing = true;
-    if (!value) {
-        thing = false;
-    }
-    return thing;
-}`;
-    t.is(result, expected);
-});
-
 test("Array", t => {
     let array = [1, 2, 3, 4, 5];
 
