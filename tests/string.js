@@ -103,7 +103,7 @@ test("Big", t => {
                 this.location = response.url;
             },errorHandler: function (error) {
                 this.error = error;
-            },hideError: function hideError() {
+            },hideError: function () {
                 this.error = "";
             }}}`;
     t.is(result, expected);
