@@ -1,14 +1,129 @@
 const test = require("ava");
 const stringit = require("../lib");
 
-test("Function", t => {
-    function foo(value) {
-        let thing = true;
-        if (!value) {
-            thing = false
-        }
-        return thing;
+function bar(value) {
+    let thing = true;
+    let array = [1, 2, 3, 4, 5];
+    if (!value) {
+        thing = false;
     }
+    return thing;
+}
+
+function foo(value) {
+    let thing = true;
+    if (!value) {
+        thing = false;
+    }
+    return thing;
+}
+
+test("Function", t => {
+
     const result = stringit(foo);
-    console.log(result)
+    const expected = `function foo(value) {
+    let thing = true;
+    if (!value) {
+        thing = false;
+    }
+    return thing;
+}`;
+    t.is(result, expected);
+});
+
+test("Array", t => {
+    let array = [1, 2, 3, 4, 5];
+
+    const result = stringit(array);
+    const expected = `[1,2,3,4,5]`;
+    t.is(result, expected);
+});
+
+test("String", t => {
+    let str = "foobar";
+
+    const result = stringit(str);
+    const expected = `foobar`;
+    t.is(result, expected);
+});
+
+test("Object", t => {
+
+    const foo = {
+        aBoolean: true,
+        aNumber: 12,
+        aFunction: bar,
+        aString: "foobar",
+        aArray: [1, 2, 3, 4, 5],
+    };
+    const result = stringit(foo);
+    const expected = `{aBoolean: true,aNumber: 12,aFunction: function bar(value) {
+    let thing = true;
+    let array = [1, 2, 3, 4, 5];
+    if (!value) {
+        thing = false;
+    }
+    return thing;
+},aString: "foobar",aArray: [1,2,3,4,5]}`;
+    t.is(result, expected);
+});
+
+test("Big", t => {
+    const big = {
+        mixins: [bar],
+        components: {
+            foo,
+        },
+        data: function() {
+            return {
+                user: false,
+                currentModifier: "STANDARD",
+                currentProduct: 0,
+            };
+        },
+        methods: {
+            selectModifier: function(newModifier) {
+                this.currentModifier = newModifier;
+            },
+            successHandler: function(response) {
+                this.location = response.url;
+            },
+            errorHandler: function(error) {
+                this.error = error;
+            },
+            hideError: function() {
+                this.error = "";
+            },
+        },
+    };
+    const result = stringit(big);
+    const expected = `{mixins: [function bar(value) {
+    let thing = true;
+    let array = [1, 2, 3, 4, 5];
+    if (!value) {
+        thing = false;
+    }
+    return thing;
+}],components: {foo: function foo(value) {
+    let thing = true;
+    if (!value) {
+        thing = false;
+    }
+    return thing;
+}},data: function () {
+            return {
+                user: false,
+                currentModifier: "STANDARD",
+                currentProduct: 0
+            };
+        },methods: {selectModifier: function (newModifier) {
+                this.currentModifier = newModifier;
+            },successHandler: function (response) {
+                this.location = response.url;
+            },errorHandler: function (error) {
+                this.error = error;
+            },hideError: function () {
+                this.error = "";
+            }}}`;
+    t.is(result, expected);
 });
