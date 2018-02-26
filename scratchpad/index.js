@@ -1,4 +1,4 @@
-const stringit = require("./lib");
+const stringit = require("../lib");
 
 const notEmpty = {
     data: function() {
@@ -18,5 +18,6 @@ function FixData(oldData, newData) {
 }
 
 const fixedData = FixData(notEmpty.data(), {foo: true});
-const result = stringit(fixedData);
+notEmpty.data = fixedData;
+const result = stringit(notEmpty);
 console.log(result);
