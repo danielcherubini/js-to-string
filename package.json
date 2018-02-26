@@ -1,5 +1,5 @@
 {
-  "name": "string-it",
+  "name": "js-to-string",
   "version": "0.0.1",
   "description": "Turns anything to string",
   "main": "lib/index.js",
