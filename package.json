@@ -1,0 +1,37 @@
+{
+  "name": "stringit",
+  "version": "0.0.0",
+  "description": "Turns anything to string",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {
+    "xss": "^0.3.7"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.6",
+    "ava": "^0.25.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danmademe/stringit.git"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "string"
+  ],
+  "author": "Daniel Cherubini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danmademe/stringit/issues"
+  },
+  "homepage": "https://github.com/danmademe/stringit#readme"
+}
