@@ -97,13 +97,13 @@ test("Big", t => {
         thing = false;
     }
     return thing;
-}},data: function() { return {"user":false,"currentModifier":"STANDARD","currentProduct":0}; },methods: {selectModifier: function (newModifier) {
+}},data: function data() { return {user: false,currentModifier: "STANDARD",currentProduct: 0}; },methods: {selectModifier: function (newModifier) {
                 this.currentModifier = newModifier;
             },successHandler: function (response) {
                 this.location = response.url;
             },errorHandler: function (error) {
                 this.error = error;
-            },hideError: function () {
+            },hideError: function hideError() {
                 this.error = "";
             }}}`;
     t.is(result, expected);
