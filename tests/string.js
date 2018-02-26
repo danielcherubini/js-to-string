@@ -18,18 +18,6 @@ function foo(value) {
     return thing;
 }
 
-test("Function", t => {
-    const result = stringit(foo);
-    const expected = `function foo(value) {
-    let thing = true;
-    if (!value) {
-        thing = false;
-    }
-    return thing;
-}`;
-    t.is(result, expected);
-});
-
 test("Array", t => {
     let array = [1, 2, 3, 4, 5];
 
@@ -43,20 +31,6 @@ test("String", t => {
 
     const result = stringit(str);
     const expected = `foobar`;
-    t.is(result, expected);
-});
-
-test("Symbol", t => {
-    let obj = {
-        type1: String,
-        type2: Number,
-        type3: Boolean,
-        type4: Function,
-        type5: Object
-    };
-
-    const result = stringit(obj);
-    const expected = "{type1: String,type2: Number,type3: Boolean,type4: Function,type5: Object}";
     t.is(result, expected);
 });
 
@@ -123,13 +97,7 @@ test("Big", t => {
         thing = false;
     }
     return thing;
-}},data: function () {
-            return {
-                user: false,
-                currentModifier: "STANDARD",
-                currentProduct: 0
-            };
-        },methods: {selectModifier: function (newModifier) {
+}},data: function data() { return {user: false,currentModifier: "STANDARD",currentProduct: 0}; },methods: {selectModifier: function (newModifier) {
                 this.currentModifier = newModifier;
             },successHandler: function (response) {
                 this.location = response.url;
