@@ -13,11 +13,12 @@
   "devDependencies": {
     "@types/node": "^9.4.6",
     "ava": "^0.25.0",
+    "nyc": "^11.4.1",
     "tslint": "^5.9.1",
     "typescript": "^2.7.2"
   },
   "scripts": {
-    "test": "ava"
+    "test": "nyc ava"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,33 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/danmademe/stringit/issues"
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.js",
+      "!tests/example/**/*.js"
+    ],
+    "source": [
+      "lib/**/*.js"
+    ],
+    "concurrency": 5,
+    "failFast": false,
+    "powerAssert": false,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "lib/assets/**/*"
+    ],
+    "reporter": [
+      "text-summary"
+    ]
   },
   "homepage": "https://github.com/danmademe/stringit#readme"
 }
