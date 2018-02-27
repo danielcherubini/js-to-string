@@ -83,7 +83,7 @@ test("Big", t => {
             },
         },
     };
-    const result = stringit(big);
+    const result = stringit(big, {execFuncs: ["data"]});
     const expected = `{"mixins":[function bar(value) {
     let thing = true;
     let array = [1, 2, 3, 4, 5];
