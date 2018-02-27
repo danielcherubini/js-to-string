@@ -1,6 +1,6 @@
 {
   "name": "js-to-string",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Turns anything to string",
   "main": "lib/index.js",
   "directories": {
@@ -12,6 +12,7 @@
     "@types/node": "^9.4.6",
     "ava": "^0.25.0",
     "nyc": "^11.4.1",
+    "require-from-string": "^2.0.1",
     "tslint": "^5.9.1",
     "typescript": "^2.7.2"
   },
