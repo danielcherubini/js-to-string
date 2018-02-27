@@ -11,6 +11,6 @@ test("Symbol", t => {
     };
 
     const result = stringit(obj);
-    const expected = "{type1: String,type2: Number,type3: Boolean,type4: Function,type5: Object}";
+    const expected = `{"type1":String,"type2":Number,"type3":Boolean,"type4":Function,"type5":Object}`;
     t.is(result, expected);
 });

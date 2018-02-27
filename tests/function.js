@@ -55,7 +55,7 @@ test("Function", t => {
 
 test("Empty Function", t => {
     const result = stringit(empty);
-    const expected = `{data: function data() { return {}; }}`;
+    const expected = `{"data":function data() { return {}; }}`;
     t.is(result, expected);
 });
 
@@ -63,25 +63,18 @@ test("Merged Function", t => {
     const mergedData = FixData(notEmpty.data(), {foo: true});
     const result = stringit(mergedData);
 
-    const expected = `function data() { return {msg: "Hello world!",messageOuter: "Say Foo",foo: true}; }`;
+    const expected = `function data() { return {"msg":"Hello world!","messageOuter":"Say Foo","foo":true}; }`;
     t.is(result, expected);
 });
 
 test("Not Function", t => {
     const result = stringit(notEmpty);
-    const expected = `{data: function data() { return {msg: "Hello world!",messageOuter: "Say Foo"}; }}`;
+    const expected = `{"data":function data() { return {"msg":"Hello world!","messageOuter":"Say Foo"}; }}`;
     t.is(result, expected);
 });
 
 test("Array of functions", t => {
     const result = stringit([empty.data, notEmpty.data]);
-    const expected = `[function () {
-        return {};
-    },function () {
-        return {
-            msg: "Hello world!",
-            messageOuter: "Say Foo"
-        };
-    }]`;
+    const expected = `[function data() { return {}; },function data() { return {"msg":"Hello world!","messageOuter":"Say Foo"}; }]`;
     t.is(result, expected);
 });
