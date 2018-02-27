@@ -1,6 +1,6 @@
 {
   "name": "js-to-string",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Turns anything to string",
   "main": "lib/index.js",
   "directories": {
