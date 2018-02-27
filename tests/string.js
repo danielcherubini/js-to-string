@@ -83,7 +83,7 @@ test("Big", t => {
             },
         },
     };
-    const result = stringit(big, {execFuncs: ["data"]});
+    const result = stringit(big);
     const expected = `{"mixins":[function bar(value) {
     let thing = true;
     let array = [1, 2, 3, 4, 5];
@@ -97,7 +97,13 @@ test("Big", t => {
         thing = false;
     }
     return thing;
-}},"data":function data() { return {"user":false,"currentModifier":"STANDARD","currentProduct":0}; },"methods":{"selectModifier":function (newModifier) {
+}},"data":function () {
+            return {
+                user: false,
+                currentModifier: "STANDARD",
+                currentProduct: 0
+            };
+        },"methods":{"selectModifier":function (newModifier) {
                 this.currentModifier = newModifier;
             },"successHandler":function (response) {
                 this.location = response.url;

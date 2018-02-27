@@ -1,5 +1,6 @@
 const test = require("ava");
 const stringit = require("../lib");
+const requireFromString = require("require-from-string");
 
 function bar(value) {
     let thing = true;
@@ -35,10 +36,9 @@ const notEmpty = {
 
 function FixData(oldData, newData) {
     const mergedData = Object.assign({}, oldData, newData);
-    function data() {
-        return mergedData;
-    }
-    return data;
+    const func = `module.exports = function data() { return ${stringit(mergedData)}; };`;
+    const required = requireFromString(func);
+    return required;
 }
 
 test("Function", t => {
@@ -63,7 +63,7 @@ test("Empty Function", t => {
 
 test("Merged Function", t => {
     const mergedData = FixData(notEmpty.data(), {foo: true});
-    const result = stringit(mergedData, {execFuncs: ["data"]});
+    const result = stringit(mergedData);
 
     const expected = `function data() { return {"msg":"Hello world!","messageOuter":"Say Foo","foo":true}; }`;
     t.is(result, expected);

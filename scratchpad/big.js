@@ -4,6 +4,7 @@ const notEmpty = {
     mounted: function() {
         let vm = this;
         setTimeout(function() {
+            // tslint:disable-next-line:no-console
             console.log("fuck you");
             vm.createRecap();
         }, 1000);
@@ -42,8 +43,5 @@ const notEmpty = {
     },
 };
 
-const options = {
-    execFuncs: ["data"],
-};
-const result = stringit(notEmpty, options);
+const result = stringit(notEmpty);
 console.log(result);

@@ -16,4 +16,5 @@ function getCsrf() {
 }
 
 const result = stringit(getCsrf);
+// tslint:disable-next-line:no-console
 console.log(result);
