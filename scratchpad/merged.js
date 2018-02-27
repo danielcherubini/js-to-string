@@ -11,13 +11,26 @@ const notEmpty = {
 
 function FixData(oldData, newData) {
     const mergedData = Object.assign({}, oldData, newData);
-    const func = `module.exports = function data() { return ${stringit(mergedData)}; };`;
-    const required = requireFromString(func);
-    return required;
+    return function data() {
+        return mergedData;
+    };
 }
+
+const options = {
+    functions: [
+        {
+            name: "data",
+            toString: function(script) {
+                const func = `module.exports = function data() { return ${stringit(script())}; };`;
+                const required = requireFromString(func);
+                return required;
+            },
+        },
+    ],
+};
 
 const fixedData = FixData(notEmpty.data(), {foo: true});
 notEmpty.data = fixedData;
-const result = stringit(notEmpty);
+const result = stringit(notEmpty, options);
 // tslint:disable-next-line:no-console
 console.log(result);
