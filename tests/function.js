@@ -34,11 +34,12 @@ const notEmpty = {
     },
 };
 
+
 function FixData(oldData, newData) {
     const mergedData = Object.assign({}, oldData, newData);
-    const func = `module.exports = function data() { return ${stringit(mergedData)}; };`;
-    const required = requireFromString(func);
-    return required;
+    return function data() {
+        return mergedData;
+    };
 }
 
 test("Function", t => {
@@ -63,7 +64,20 @@ test("Empty Function", t => {
 
 test("Merged Function", t => {
     const mergedData = FixData(notEmpty.data(), {foo: true});
-    const result = stringit(mergedData);
+
+    const options = {
+        functions: [
+            {
+                name: "data",
+                toString: function(script) {
+                    const func = `module.exports = function data() { return ${stringit(script())}; };`;
+                    const required = requireFromString(func);
+                    return required;
+                },
+            },
+        ],
+    };
+    const result = stringit(mergedData, options);
 
     const expected = `function data() { return {"msg":"Hello world!","messageOuter":"Say Foo","foo":true}; }`;
     t.is(result, expected);

@@ -18,6 +18,50 @@ function foo(value) {
 const stringFoo = jsToString(foo);
 ```
 
+## Options
+
+Custom toString methods
+
+Here's a good example of when to use a custom toString method.. if you've merged data outside the function that's being written to string you need to finalise the data first.
+
+```js
+const jsToString = require("../lib");
+const requireFromString = require("require-from-string");
+const notEmpty = {
+    data: function() {
+        return {
+            msg: "Hello world!",
+            messageOuter: "Say Foo",
+        };
+    },
+};
+
+function FixData(oldData, newData) {
+    const mergedData = Object.assign({}, oldData, newData);
+    return function data() {
+        return mergedData;
+    };
+}
+
+const options = {
+    functions: [
+        {
+            name: "data",
+            toString: function(script) {
+                const func = `module.exports = function data() { return ${jsToString(script())}; };`;
+                const required = requireFromString(func);
+                return required;
+            },
+        },
+    ],
+};
+
+const fixedData = FixData(notEmpty.data(), {foo: true});
+notEmpty.data = fixedData;
+const result = jsToString(notEmpty, options);
+console.log(result);
+```
+
 
 [npm-image]: https://badge.fury.io/js/js-to-string.svg
 [npm-url]: https://npmjs.org/package/js-to-string
