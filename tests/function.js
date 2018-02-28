@@ -34,7 +34,6 @@ const notEmpty = {
     },
 };
 
-
 function FixData(oldData, newData) {
     const mergedData = Object.assign({}, oldData, newData);
     return function data() {
