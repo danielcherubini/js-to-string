@@ -4,6 +4,7 @@ node_js:
   - v8
   - v7
   - v6
+  - 10
 before_install:
 - npm install -g npm
 - npm install -g codecov
