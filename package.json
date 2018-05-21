@@ -7,7 +7,9 @@
     "lib": "lib",
     "test": "tests"
   },
-  "dependencies": {},
+  "dependencies": {
+    "serialize-javascript": "^1.5.0"
+  },
   "devDependencies": {
     "@types/node": "^9.4.6",
     "ava": "^0.25.0",
