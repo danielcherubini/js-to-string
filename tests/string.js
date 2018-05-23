@@ -26,6 +26,12 @@ test("Array", t => {
     t.is(result, expected);
 });
 
+test("XSS Array", t=> {
+    const array =  ["</script>", ["</script>"]]
+    const result = stringit(array);
+    t.false(result.includes("</script>"));
+})
+
 test("String", t => {
     let str = "foobar";
 
@@ -53,6 +59,17 @@ test("Object", t => {
     return thing;
 },"aString":"foobar","aArray":[1,2,3,4,5]}`;
     t.is(result, expected);
+});
+
+test("XSS Object", t => {
+    const objectt = {
+        aString: "</script>",
+        aObject: {
+            aString: "</script>"
+        }
+    }
+    const result = stringit(objectt);
+    t.false(result.includes("</script>"));
 });
 
 test("Big", t => {
