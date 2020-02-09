@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@types/node": "^10.1.2",
-    "ava": "^0.25.0",
+    "ava": "^3.3.0",
     "nyc": "^11.8.0",
     "require-from-string": "^2.0.2",
     "tslint": "^5.10.0",
