@@ -11,7 +11,7 @@
     "serialize-javascript": "^1.5.0"
   },
   "devDependencies": {
-    "@types/node": "^10.1.2",
+    "@types/node": "^14.0.5",
     "ava": "^0.25.0",
     "nyc": "^11.8.0",
     "require-from-string": "^2.0.2",
