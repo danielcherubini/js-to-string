@@ -8,15 +8,15 @@
     "test": "tests"
   },
   "dependencies": {
-    "serialize-javascript": "^1.5.0"
+    "serialize-javascript": "^1.9.1"
   },
   "devDependencies": {
-    "@types/node": "^10.1.2",
+    "@types/node": "^10.17.44",
     "ava": "^0.25.0",
-    "nyc": "^11.8.0",
+    "nyc": "^11.9.0",
     "require-from-string": "^2.0.2",
-    "tslint": "^5.10.0",
-    "typescript": "^2.8.3"
+    "tslint": "^5.20.1",
+    "typescript": "^2.9.2"
   },
   "scripts": {
     "test": "nyc ava",
