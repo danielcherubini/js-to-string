@@ -12,8 +12,8 @@
   },
   "devDependencies": {
     "@types/node": "^10.17.44",
-    "ava": "^0.25.0",
-    "nyc": "^11.9.0",
+    "ava": "^3.14.0",
+    "nyc": "^15.1.0",
     "require-from-string": "^2.0.2",
     "tslint": "^5.20.1",
     "typescript": "^2.9.2"
@@ -46,11 +46,7 @@
     ],
     "concurrency": 5,
     "failFast": false,
-    "powerAssert": false,
-    "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+    "powerAssert": false
   },
   "nyc": {
     "include": [

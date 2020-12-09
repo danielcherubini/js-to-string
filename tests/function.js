@@ -55,7 +55,7 @@ test("Function", t => {
 
 test("Empty Function", t => {
     const result = stringit(empty);
-    const expected = `{"data":function () {
+    const expected = `{"data":function() {
         return {};
     }}`;
     t.is(result, expected);
@@ -84,10 +84,10 @@ test("Merged Function", t => {
 
 test("Not Function", t => {
     const result = stringit(notEmpty);
-    const expected = `{"data":function () {
+    const expected = `{"data":function() {
         return {
             msg: "Hello world!",
-            messageOuter: "Say Foo"
+            messageOuter: "Say Foo",
         };
     }}`;
     t.is(result, expected);
@@ -95,12 +95,12 @@ test("Not Function", t => {
 
 test("Array of functions", t => {
     const result = stringit([empty.data, notEmpty.data]);
-    const expected = `[function () {
+    const expected = `[function() {
         return {};
-    },function () {
+    },function() {
         return {
             msg: "Hello world!",
-            messageOuter: "Say Foo"
+            messageOuter: "Say Foo",
         };
     }]`;
     t.is(result, expected);

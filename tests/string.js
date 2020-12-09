@@ -114,19 +114,19 @@ test("Big", t => {
         thing = false;
     }
     return thing;
-}},"data":function () {
+}},"data":function() {
             return {
                 user: false,
                 currentModifier: "STANDARD",
-                currentProduct: 0
+                currentProduct: 0,
             };
-        },"methods":{"selectModifier":function (newModifier) {
+        },"methods":{"selectModifier":function(newModifier) {
                 this.currentModifier = newModifier;
-            },"successHandler":function (response) {
+            },"successHandler":function(response) {
                 this.location = response.url;
-            },"errorHandler":function (error) {
+            },"errorHandler":function(error) {
                 this.error = error;
-            },"hideError":function () {
+            },"hideError":function() {
                 this.error = "";
             }}}`;
     t.is(result, expected);
